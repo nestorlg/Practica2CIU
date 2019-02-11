@@ -77,6 +77,7 @@ void mousePressed() {
         figura.endShape();
         solido = createShape();
         solido.beginShape();
+        solido.fill(255);
         solido.stroke(255,0,0);
         solido.strokeWeight(2);
         puntosAux = new float[count][3];
