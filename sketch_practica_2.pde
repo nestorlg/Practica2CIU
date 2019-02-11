@@ -17,8 +17,10 @@ void setup () {
   count = 0;
   terminado = false;
   comienzo = true;
+  //Vértices de la figura 2D
   puntos = new float[1][3];
   puntosAux = new float[1][3];
+  //Creación de la figura 2D
   background(0);
   stroke(255);
   figura = createShape();
@@ -33,6 +35,7 @@ void draw () {
     background(0);
     translate(X,Y);
     shape(solido);
+    //Capturar movimiento de la figura por teclado
     if (keyPressed == true) {
       if (keyCode == UP) {
         Y -= 5;
@@ -53,6 +56,7 @@ void draw () {
 void mousePressed() {
   if (!terminado) {
     if (mouseButton == LEFT) {
+      //Captura de los vértices de la figura 2D
       figura.vertex(mouseX,mouseY);
       if (count > 0) {
         puntosAux = puntos;
@@ -72,6 +76,7 @@ void mousePressed() {
       lastY = mouseY;
       count++;
     } else {
+      //Creación del sólido de revolución
       if (mouseButton == RIGHT) {
         line(lastX,lastY,firstX,firstY);
         figura.endShape();
@@ -97,6 +102,7 @@ void mousePressed() {
       terminado = true;
     }
   } else {
+    //Habilitar la creación de un sólido nuevo
     if (mouseButton == RIGHT) {
       terminado = false;
       comienzo = true;
